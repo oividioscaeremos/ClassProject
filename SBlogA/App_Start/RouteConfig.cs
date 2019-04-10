@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SBlogA.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,11 +14,13 @@ namespace SBlogA
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+            var namespaces = new[] { typeof(PostsController).Namespace };
+
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            //HomePage route defined. This request was responed by Posts Controller Index Action 
+            routes.MapRoute("Home", "", new { controller = "Posts", action = "Index" }, namespaces);
+            routes.MapRoute("Login", "login", new { controller = "Auth", action = "Login" });
+           
         }
     }
 }
