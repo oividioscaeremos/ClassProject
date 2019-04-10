@@ -17,7 +17,7 @@ namespace SBlogA.Controllers
 
 
         [HttpPost]
-        public ActionResult Login(AuthLogin formData, string returnUrl)
+        public ActionResult Login(AuthLogin formData,string returnUrl)
         {
 
             if (!ModelState.IsValid)
@@ -26,21 +26,13 @@ namespace SBlogA.Controllers
             }
 
 
-            if ((formData.Username == "aliduru" && formData.Password == "12345") || formData.Username == "cemtaskin")
-            {
-                FormsAuthentication.SetAuthCookie(formData.Username, true);
-            }
-            else
-            {
-                return View();
-            }
+            FormsAuthentication.SetAuthCookie(formData.Username, true);
 
 
-            if (!string.IsNullOrWhiteSpace(returnUrl))
+            if (!String.IsNullOrWhiteSpace(returnUrl))
             {
                 return Redirect(returnUrl);
             }
-
 
             return RedirectToRoute("Home");
         }

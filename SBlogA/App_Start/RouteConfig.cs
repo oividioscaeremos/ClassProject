@@ -20,7 +20,8 @@ namespace SBlogA
             //HomePage route defined. This request was responed by Posts Controller Index Action 
             routes.MapRoute("Home", "", new { controller = "Posts", action = "Index" }, namespaces);
             routes.MapRoute("Login", "login", new { controller = "Auth", action = "Login" });
-           
+            routes.MapRoute("Logout", "logout", new { controller = "Auth", action = "Logout" });
+
         }
     }
 }
