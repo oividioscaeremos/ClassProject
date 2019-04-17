@@ -7,11 +7,11 @@ using System.Web.Mvc;
 
 namespace SBlogA.Areas.Admin.Controllers
 {
-    public class PostsController : Controller
+    public class UsersController : Controller
     {
-        // GET: Admin/Posts
-        [Authorize(Roles = "admin")]
-        [SelectedTab("post")]
+        [Authorize(Roles ="admin")]
+        // GET: Admin/Users
+        [SelectedTab("users")]
         public ActionResult Index()
         {
             return View();

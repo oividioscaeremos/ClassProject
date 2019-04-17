@@ -1,0 +1,25 @@
+﻿@using System.Web.Optimization
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Admin Layout</title>
+    @Styles.Render("~/admin/styles")
+
+</head>
+<body>
+    <ul class="nav nav-pills">
+        <li class="nav-item, @(ViewBag.SelectedTab == "users" ? "active":"")">
+            @Html.ActionLink("User","Index","Users",new { area="admin"},"")
+        </li>
+        <li class="nav-item, @(ViewBag.SelectedTab == "post" ? "active":"")">
+            @Html.ActionLink("Posts", "Index", "Posts", new { area = "admin" },"")
+        </li>
+        <li class="nav-item pull-right">
+            @Html.RouteLink("Back to Home Page","Home")
+        </li>
+    </ul>
+    @RenderBody()
+    @Scripts.Render("~/admin/scripts")
+    @RenderSection("Scripts", false)
+</body>
+</html>
