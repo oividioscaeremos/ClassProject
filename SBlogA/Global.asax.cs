@@ -16,6 +16,16 @@ namespace SBlogA
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            Database.configure();
         }
+        protected void Application_BeginRequest()
+        {
+            Database.openSession();
+        }
+        protected void Application_EndRequest()
+        {
+            Database.closeSession();
+        }
+
     }
 }
